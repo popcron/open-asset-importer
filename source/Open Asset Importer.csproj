@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsPackable>true</IsPackable>
+        <WarningsAsErrors>true</WarningsAsErrors>
+        <PublishAot>true</PublishAot>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="runtimes\**" PackagePath="runtimes" Pack="true" />
+    </ItemGroup>
+
+    <Choose>
+        <When Condition="$([MSBuild]::IsOSPlatform('Windows')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
+            <ItemGroup>
+                <None Include="$(MSBuildThisFileDirectory)\runtimes\win-x64\native\assimp.dll" Link="assimp.dll" Visible="False" CopyToOutputDirectory="PreserveNewest" />
+            </ItemGroup>
+        </When>
+        <When Condition="$([MSBuild]::IsOSPlatform('Windows')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
+            <ItemGroup>
+                <None Include="$(MSBuildThisFileDirectory)\runtimes\win-arm64\native\assimp.dll" Link="assimp.dll" Visible="False" CopyToOutputDirectory="PreserveNewest" />
+            </ItemGroup>
+        </When>
+        <When Condition="$([MSBuild]::IsOSPlatform('Linux')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'">
+            <ItemGroup>
+                <None Include="$(MSBuildThisFileDirectory)\runtimes\linux-x64\native\libassimp.so" Link="libassimp.so" Visible="False" CopyToOutputDirectory="PreserveNewest" />
+            </ItemGroup>
+        </When>
+        <When Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+            <ItemGroup>
+                <None Include="$(MSBuildThisFileDirectory)\runtimes\osx\native\libassimp.dylib" Link="libassimp.dylib" Visible="False" CopyToOutputDirectory="PreserveNewest" />
+            </ItemGroup>
+        </When>
+    </Choose>
+    
+</Project>

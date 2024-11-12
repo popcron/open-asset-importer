@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35424.110 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open Asset Importer", "source\Open Asset Importer.csproj", "{09AFDADB-7FE7-4792-AD92-E98A8C46C78D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Open Asset Importer Tests", "tests\Open Asset Importer Tests.csproj", "{6715ABA0-1E08-41F7-887A-0384FDD8B0F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09AFDADB-7FE7-4792-AD92-E98A8C46C78D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09AFDADB-7FE7-4792-AD92-E98A8C46C78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09AFDADB-7FE7-4792-AD92-E98A8C46C78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09AFDADB-7FE7-4792-AD92-E98A8C46C78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6715ABA0-1E08-41F7-887A-0384FDD8B0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6715ABA0-1E08-41F7-887A-0384FDD8B0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6715ABA0-1E08-41F7-887A-0384FDD8B0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6715ABA0-1E08-41F7-887A-0384FDD8B0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
