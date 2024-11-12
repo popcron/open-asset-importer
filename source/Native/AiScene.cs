@@ -20,6 +20,5 @@ public unsafe struct AiScene
     public AiString name;
     public uint numSkeletons;
     public nint skeletons;
-
-    private readonly nint somethingIdk;
+    public readonly nint usedByAssimpInternally;
 }
