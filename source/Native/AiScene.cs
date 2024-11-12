@@ -16,7 +16,7 @@ public unsafe struct AiScene
     public nint lights;
     public uint numCameras;
     public nint cameras;
-    public nint metadata;
+    public AiMetadata* metadata;
     public AiString name;
     public uint numSkeletons;
     public nint skeletons;

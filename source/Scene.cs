@@ -10,6 +10,9 @@ public unsafe struct Scene : IDisposable
 
     public readonly bool IsDisposed => scene is null;
     public readonly string Name => scene->name.ToString();
+    public readonly ref SceneFlags Flags => ref scene->flags;
+    public readonly Node RootNode => new(scene->rootNode);
+    public readonly Metadata Metadata => new(scene->metadata);
 
     public readonly ReadOnlySpan<Mesh> Meshes
     {
@@ -26,7 +29,7 @@ public unsafe struct Scene : IDisposable
         throw new NotSupportedException();
     }
 
-    public Scene(ReadOnlySpan<byte> bytes, ReadOnlySpan<char> hint)
+    public Scene(ReadOnlySpan<byte> bytes, ReadOnlySpan<char> hint = default)
     {
         fixed (byte* bytesPointer = bytes)
         {

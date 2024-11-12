@@ -16,7 +16,7 @@ public unsafe struct AiMesh
     public AiMeshUVComponentArray uvComponentCounts;
     public AiFace* faces;
     public uint numBones;
-    public nint bones;
+    public AiBone** bones;
     public uint materialIndex;
     public AiString name;
     public uint numAnimatedMeshes;

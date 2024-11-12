@@ -11,5 +11,5 @@ public unsafe struct AiNode
     public AiNode** children;
     public uint numMeshes;
     public uint* meshes;
-    public nint metadata;
+    public AiMetadata* metadata;
 }
