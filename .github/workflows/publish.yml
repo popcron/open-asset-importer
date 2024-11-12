@@ -29,8 +29,11 @@ jobs:
       
       - name: Pack
         run: dotnet pack -c Release /p:Version=${VERSION} --no-build --output .
+
+      - name: Add source
+        run: dotnet nuget add source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --name github --username ${{ github.repository_owner }} --password ${{ github.token }} --store-password-in-clear-text
       
       - name: Push
-        run: dotnet nuget push OpenAssetImporter.${VERSION}.nupkg --source https://nuget.pkg.github.com/popcron/index.json --api-key ${ASSIMP_SECRET_TOKEN}
+        run: dotnet nuget push OpenAssetImporter.${VERSION}.nupkg --source github --api-key ${ASSIMP_SECRET_TOKEN}
         env:
           ASSIMP_SECRET_TOKEN: ${{ secrets.ASSIMP_SECRET_TOKEN }}
