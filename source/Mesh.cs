@@ -38,6 +38,14 @@ public unsafe readonly struct Mesh
         }
     }
 
+    public readonly ReadOnlySpan<Face> Faces
+    {
+        get
+        {
+            return new ReadOnlySpan<Face>(mesh->faces, (int)mesh->numFaces);
+        }
+    }
+
     public readonly ReadOnlySpan<Vector3> Normals
     {
         get

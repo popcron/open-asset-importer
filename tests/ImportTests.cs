@@ -22,6 +22,14 @@ public class ImportTests
         Assert.That(mesh.Name, Is.EqualTo("Cube"));
         Assert.That(mesh.VertexCount, Is.EqualTo(6 * 4));
         Assert.That(mesh.FaceCount, Is.EqualTo(6));
+
+        Assert.That(mesh.Faces.Length, Is.EqualTo(6));
+        Assert.That(mesh.Faces[0].Indices.Length, Is.EqualTo(4));
+        Assert.That(mesh.Faces[1].Indices.Length, Is.EqualTo(4));
+        Assert.That(mesh.Faces[2].Indices.Length, Is.EqualTo(4));
+        Assert.That(mesh.Faces[3].Indices.Length, Is.EqualTo(4));
+        Assert.That(mesh.Faces[4].Indices.Length, Is.EqualTo(4));
+        Assert.That(mesh.Faces[5].Indices.Length, Is.EqualTo(4));
     }
 
     [Test]
