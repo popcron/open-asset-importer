@@ -8,6 +8,12 @@
         <IsPackable>true</IsPackable>
         <WarningsAsErrors>true</WarningsAsErrors>
         <PublishAot>true</PublishAot>
+        <Title>Open Asset Importer</Title>
+        <Company>popcron</Company>
+        <Description>Bindings for Open Asset Importer (assimp) with NativeAOT compatability</Description>
+        <PackageId>OpenAssetImporter</PackageId>
+        <RepositoryUrl>https://github.com/popcron/open-asset-importer</RepositoryUrl>
+        <Version>0.0.6</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -46,13 +52,14 @@
 		
 	<PropertyGroup>
 		<PackageId>OpenAssetImporter</PackageId>
-		<RepositoryType>git</RepositoryType>
+		<RepositoryType></RepositoryType>
 		<RepositoryUrl>https://github.com/popcron/open-asset-importer</RepositoryUrl>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Title>Open Asset Importer</Title>
 		<Company>popcron</Company>
 		<Description>Bindings for Open Asset Importer (assimp) with NativeAOT compatability</Description>
         <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Authors>popcron</Authors>
 	</PropertyGroup>
 		
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

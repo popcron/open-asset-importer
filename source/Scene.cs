@@ -29,17 +29,23 @@ public unsafe struct Scene : IDisposable
         throw new NotSupportedException();
     }
 
-    public Scene(ReadOnlySpan<byte> bytes, ReadOnlySpan<char> hint = default)
+    /// <summary>
+    /// Imports a scene from a byte array.
+    /// </summary>
+    public Scene(ReadOnlySpan<byte> bytes, ReadOnlySpan<char> hint = default, PostProcessSteps postProcessFlags = default)
     {
         fixed (byte* bytesPointer = bytes)
         {
-            scene = Assimp.aiImportFileFromMemory(bytesPointer, (uint)bytes.Length, default, hint.ToString());
+            scene = Assimp.aiImportFileFromMemory(bytesPointer, (uint)bytes.Length, postProcessFlags, hint.ToString());
         }
     }
 
-    public Scene(ReadOnlySpan<char> filePath)
+    /// <summary>
+    /// Imports a scene from data at the file path.
+    /// </summary>
+    public Scene(ReadOnlySpan<char> filePath, PostProcessSteps postProcessFlags = default)
     {
-        scene = Assimp.aiImportFile(filePath.ToString(), default);
+        scene = Assimp.aiImportFile(filePath.ToString(), postProcessFlags);
         if (scene is null)
         {
             string message = Assimp.aiGetErrorString();
@@ -47,6 +53,9 @@ public unsafe struct Scene : IDisposable
         }
     }
 
+    /// <summary>
+    /// Releases the imported scene.
+    /// </summary>
     public void Dispose()
     {
         Assimp.aiReleaseImport(scene);
